@@ -1,21 +1,36 @@
 import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
+import 'dart:convert' show json;
+import 'package:http/http.dart' show get;
 import 'DataType/Article.dart';
-Future getJson()  async{
+Future <List<Articles>> getJson()  async{
   List josnList;
   List<Articles> listOfData;
   String url="https://newsapi.org/v2/top-headlines?country=us&apiKey=791b5a001f314214814a5893ba725f8b";
-  var response = await http.get(url,headers: {"Accept":"application/json"});
+  var response = await  get(url,headers: {"Accept":"application/json"});
   var data;
   if (response.statusCode== 200){
     data=json.decode(response.body);
     josnList=data['articles'];
     if(josnList!=null){
       for (int i=0 ;i<josnList.length;i++) {
-
+listOfData.add(new Articles.fromJson(josnList[i]));
       }
     }
-  }else
-    return data;
+  }else {
+    // If that response was not OK, throw an error.
+    throw Exception('Failed to load post');
+  }
+    return listOfData;
 }
+
+
+
+
+
+
+
+
+
+
+
+
