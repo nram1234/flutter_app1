@@ -29,7 +29,9 @@ class _BodyState extends State<Body> {
         appBar: AppBar(),
         body: ListView.builder(
             itemCount: listData.length,
-            itemBuilder: (BuildContext context, int i) {}),
+            itemBuilder: (BuildContext context, int i) {
+              Text(listData[i].title);
+            }),
       ),
       title: "Top News",
     );
