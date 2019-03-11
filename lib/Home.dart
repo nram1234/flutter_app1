@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'DataType/Article.dart';
-import 'dart:async';
 import 'GetNews.dart';
 
 class Home extends StatelessWidget {
@@ -16,77 +15,101 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  @override
+  void initState() {
+    super.initState();
+  }
 
-
-  List<Articles> listData = [];
-String o='0000000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjf0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb  0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb jjfjfhghghgnnvnvnvnnvnbnnb jv v mjfj j fjfijvif fijvijdfijdfjivji vfnidfvidfnfdnv fivdfiviivmidfmvimdfimvidfmvmdfvmdfimvimdfmvidfmidf fvifdivmfimvfiovmiofmviodfmivdfindfndfindfionmfionmiofdbf ofdviofviofdv v iofvmiofmvf vkfvm kf vfov ofi 0000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjf0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb  0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb jjfjfhghghgnnvnvnvnnvnbnnb jv v mjfj j fjfijvif fijvijdfijdfjivji vfnidfvidfnfdnv fivdfiviivmidfmvimdfimvidfmvmdfvmdfimvimdfmvidfmidf fvifdivmfimvfiovmiofmviodfmivdfindfndfindfionmfionmiofdbf ofdviofviofdv v iofvmiofmvf vkfvm kf vfov ofi 0000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjf0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb 0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb  0000000000000000000000000000000000000000000000dkdkdkdkkdkdjfjfjfjjfjfhghghgnnvnvnvnnvnbnnb jjfjfhghghgnnvnvnvnnvnbnnb jv v mjfj j fjfijvif fijvijdfijdfjivji vfnidfvidfnfdnv fivdfiviivmidfmvimdfimvidfmvmdfvmdfimvimdfmvidfmidf fvifdivmfimvfiovmiofmviodfmivdfindfndfindfionmfionmiofdbf ofdviofviofdv v iofvmiofmvf vkfvm kf vfov ofi vf vkofviofmvfiomviofdmvidfmdfiov ifdvmifd vif vi dfi vfdiovif v fdiovdfividfv f';
   @override
   Widget build(BuildContext context) {
-
-    List<String> data = [];
-    for (int i = 0; i < 100; i++) {
-      data.add(
-          'rrrrrrrrrrrrjjnjnjnnnjnjnjjjjjjjjjjjjjjjjjjjjjjjjjnjknjnnjnjnnhbgvfcvffcfctfctfccdrxxesxezzzdxtfcfvubhbnnunuinijunininuinuinuinjnjn bnhyu yuhbhyubhb hu  b bb n hbhbbuvn hjhjbhbhhvhj nm nb hjbhbhb  n hjbhyugyuu   $i');
-      print(i);
-    }
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            elevation: 14.0,
-            title: Text('Top News'),
-            actions: <Widget>[
-              IconButton(icon: Icon(Icons.refresh), onPressed: () {})
-            ],
-          ),
-          body: ListView.builder(
-              itemCount: listData.length,
-              itemBuilder: (context, int pos) {
-                return Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Container(
-                    child: Material(
-                        elevation: 10.0,
-                        borderRadius: BorderRadius.circular(5.0),
-                        shadowColor: Colors.cyanAccent,
-                        child: Column(
-                          children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                Expanded(
-                                    flex: 1,
-                                    child: Container(
-                                      height: 100.0,
-                                      width: 200.0,
-                                      decoration: BoxDecoration(
-                                          //  color: Colors.amber,
-                                          borderRadius: BorderRadius.only(
-                                              bottomLeft:
-                                                  Radius.circular(25.0))),
-                                    )),
-                                Expanded(
-                                    flex: 3,
-                                    child: Container(
-                                      child:Padding(padding: EdgeInsets.all(8.0),child: Text(listData[pos].content),) ,
-                                      decoration: BoxDecoration(
-                                          // color: Colors.limeAccent,
-                                          borderRadius: BorderRadius.only(
-                                              bottomRight:
-                                                  Radius.circular(25.0),
-                                              topRight: Radius.circular(25.0))),
-                                      width: 200.0,
-                                      height: 100.0,
-                                    ))
-                              ],
-                            ),
-                            ExpansionTile(
-                              title: Text('more'),
-                              children: <Widget>[Padding(padding: EdgeInsets.all(8.0),child: Text(o),) ],
-                            )
-                          ],
-                        )),
-                  ),
-                );
-              })),
-    );
+        home: Scaffold(
+            appBar: AppBar(
+              elevation: 14.0,
+              title: Text('Top News'),
+              actions: <Widget>[
+                IconButton(icon: Icon(Icons.refresh), onPressed: () {})
+              ],
+            ),
+            body: Container(
+                child: FutureBuilder(
+              future: getJson(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<Articles>> snapshot) {
+                if (snapshot.data == null) {
+                  return Container(
+                    child:Center(child: Text('Loding',style: TextStyle(fontSize: 24.0),),) ,
+                  );
+                } else {
+                  return ListView.builder(
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (BuildContext context, int indx) {
+                        return Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Container(
+                            child: Material(
+                                elevation: 10.0,
+                                borderRadius: BorderRadius.circular(5.0),
+                                shadowColor: Colors.cyanAccent,
+                                child: Column(
+                                  children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                            flex: 1,
+                                            child: Container(
+                                              child: Image.network(snapshot
+                                                  .data[indx].urlToImage),
+                                              height: 100.0,
+                                              width: 200.0,
+                                              decoration: BoxDecoration(
+                                                  //  color: Colors.amber,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          bottomLeft:
+                                                              Radius.circular(
+                                                                  25.0))),
+                                            )),
+                                        Expanded(
+                                            flex: 3,
+                                            child: Container(
+                                              child: Padding(
+                                                padding: EdgeInsets.all(8.0),
+                                                child: Text(snapshot
+                                                    .data[indx].title),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                  // color: Colors.limeAccent,
+                                                  borderRadius:
+                                                      BorderRadius.only(
+                                                          bottomRight:
+                                                              Radius.circular(
+                                                                  25.0),
+                                                          topRight:
+                                                              Radius.circular(
+                                                                  25.0))),
+                                              width: 200.0,
+                                              height: 100.0,
+                                            ))
+                                      ],
+                                    ),
+                                    ExpansionTile(
+                                      title: Text('more'),
+                                      children: <Widget>[
+                                        Padding(
+                                          padding: EdgeInsets.all(8.0),
+                                          child:
+                                              Text(snapshot.data[indx].content),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                )),
+                          ),
+                        );
+                      });
+                }
+              },
+            ))));
   }
 }
