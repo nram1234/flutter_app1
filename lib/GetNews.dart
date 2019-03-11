@@ -10,10 +10,11 @@ Future <List<Articles>> getJson()  async{
   var data;
   if (response.statusCode== 200){
     data=json.decode(response.body);
-    josnList=data['articles'];
+    josnList=data['articles']as List;
     if(josnList!=null){
       for (int i=0 ;i<josnList.length;i++) {
 listOfData.add(new Articles.fromJson(josnList[i]));
+
       }
     }
   }else {
