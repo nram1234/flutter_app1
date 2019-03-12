@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'DataType/Article.dart';
 import 'GetNews.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+
 
 class Home extends StatelessWidget {
   @override
@@ -116,20 +116,7 @@ class _BodyState extends State<Body> {
                                             ))
                                       ],
                                     ),
-                                    ExpansionTile(
-                                      title: Text('more'),
-                                      children: <Widget>[
-                                        Padding(
-                                            padding: EdgeInsets.all(8.0),
-                                            child: WebviewScaffold(
-                                              url: snapshot.data[indx].url,
-                                              scrollBar: true,
-                                              withZoom: true,
-                                              withJavascript: true,
-                                              primary: true,
-                                            ))
-                                      ],
-                                    )
+
                                   ],
                                 )),
                           ),
